@@ -1,0 +1,43 @@
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head th:replace="fragment/header :: header"></head>
+<body>
+
+<div th:replace="fragment/navbar :: navbar"></div>
+
+
+<div class="table-section">
+    <h2 class="new-h2">Member Approval List</h2>
+    <div>
+        <nobr>
+            <a th:href="@{/admin/manager/add}">Add Manager</a> |
+            <a th:href="@{/}">Back to Index</a>
+        </nobr>
+    </div>
+    <br/><br/>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Edit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each ="contact : ${contacts}">
+            <td><a th:utext="${contact.id}">...</a></td>
+            <td><a th:utext="${contact.firstName}">...</a></td>
+            <td th:utext="${contact.email}">...</td>
+            <td><a >Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br/><br/>
+
+
+<div th:replace="fragment/footer :: footer"></div>
+</body>
+</html>
